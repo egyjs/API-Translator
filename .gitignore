@@ -1,0 +1,8 @@
+node_modules
+dist
+
+tests
+test.*
+
+.DS_Store
+yarn.lock
