@@ -1,36 +1,44 @@
 {
-  "name": "free-translate",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "prepare": "tsc",
-    "build": "tsc",
-    "start": "ts-node src/index.ts"
-  },
-  "keywords": [
-    "translate",
-    "free translate",
-    "translator",
-    "puppeteer",
-    "google translate"
-  ],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "puppeteer": "^19.1.1"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.4",
-    "husky": "^8.0.1",
-    "prettier": "2.7.1",
-    "pretty-quick": "^3.1.3",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
-  },
-  "description": "",
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  }
+	"name": "api-translator",
+	"version": "1.0.0",
+	"main": "index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"test": "jest --silent=false",
+		"test:watch": "jest --watch --silent=false",
+		"build": "tsc",
+		"watch": "tsc -w"
+	},
+	"keywords": [
+		"translate",
+		"free translate",
+		"translator",
+		"puppeteer",
+		"google translate"
+	],
+	"author": "egyjs <el3zahaby@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"puppeteer": "^19.1.1"
+	},
+	"devDependencies": {
+		"@babel/preset-typescript": "^7.18.6",
+		"@types/jest": "^29.2.0",
+		"@types/node": "^18.11.4",
+		"eslint-config-prettier": "^8.5.0",
+		"husky": "^8.0.1",
+		"jest": "^29.2.2",
+		"jest-puppeteer": "^6.1.1",
+		"prettier": "2.7.1",
+		"pretty-quick": "^3.1.3",
+		"ts-jest": "^29.0.3",
+		"ts-node": "^10.9.1",
+		"typescript": "^4.8.4"
+	},
+	"description": "api-translator is a free and unlimited translation API that uses Google Translate",
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	}
 }

@@ -1,5 +1,7 @@
 .git
+.idea
 .vscode
+node_modules
 tests
 test.*
 
@@ -10,3 +12,5 @@ test.*
 prettier.config.js
 tsconfig.json
 .DS_Store
+jest.config.ts
+yarn.lock
