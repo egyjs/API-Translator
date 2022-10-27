@@ -1,4 +1,3 @@
-![API-Translator build](https://img.shields.io/appveyor/build/egyjs/API-Translator?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/egyjs/api-translator?logo=api-translator%20%7C%20egyjs&logoColor=image%3Ahttps%3A%2F%2Fimg.shields.io%2Fgithub%2Flast-commit%2Fegyjs%2Fapi-translator%3Flogo%3Dapi-translator%2520%257C%2520egyjs%26style%3Dflat-square%5BGitHub%20last%20commit%5D&style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/api-translator?style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/egyjs/API-Translator/npm-publish?style=flat-square)
