@@ -3,4 +3,5 @@ export interface Translate {
     from?: Locale;
     to: Locale;
 }
-export declare function translate(text: string | Array<string>, languages: Translate): Promise<string | string[]>;
+export declare type Texts = string | string[] | Object;
+export declare function translate(text: Texts, languages: Translate): Promise<string | string[] | Object>;

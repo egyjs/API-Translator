@@ -47,8 +47,7 @@ function breakText(text, limit) {
 }
 function google_translate(page, txt) {
     return __awaiter(this, void 0, void 0, function* () {
-        let translatedTexts = [];
-        yield page
+        return yield page
             .evaluate(text => {
             console.log("translating", text);
             let el = document.querySelector('textarea[jsname="BJE2fc"]');
@@ -59,15 +58,11 @@ function google_translate(page, txt) {
             .then(() => page.waitForResponse((response) => __awaiter(this, void 0, void 0, function* () { return response.url().includes("_/TranslateWebserverUi"); })))
             .then(() => page.waitForResponse((response) => __awaiter(this, void 0, void 0, function* () { return response.url().includes("/log?format=json"); })))
             .then(() => __awaiter(this, void 0, void 0, function* () {
-            let text = yield page
-                .waitForSelector("span[jsname=jqKxS]")
-                .then(() => page.evaluate(() => {
+            return yield page.waitForSelector("span[jsname=jqKxS]").then(() => page.evaluate(() => {
                 let el = document.querySelector("span[jsname=jqKxS]");
                 return el.innerText;
             }));
-            translatedTexts.push(text);
         }));
-        return translatedTexts;
     });
 }
 function translator({ from, to, text, }) {
@@ -76,31 +71,43 @@ function translator({ from, to, text, }) {
             const browser = yield puppeteer.launch({
                 timeout: 60000,
             });
-            const isString = typeof text === "string";
-            const textsArray = isString ? [text] : text;
-            let translatedTexts = [];
+            const textType = typeof text;
+            let texts = {};
+            let translatedTexts = {};
+            if (typeof text === "string") {
+                texts = Object.assign({}, [text]);
+            }
+            else if (Array.isArray(text)) {
+                texts = Object.assign({}, text);
+            }
+            else {
+                texts = text;
+            }
             const page = yield browser.newPage();
             const url = `https://translate.google.com/?sl=${from}&tl=${to}&op=translate`;
             yield page.goto(url).then(() => page.waitForSelector("textarea"));
-            for (const txt of textsArray) {
+            for (let key in texts) {
+                const txt = texts[key];
                 if (txt.length > GOOGLE_TRANSLATE_CHARACTER_LIMIT) {
                     const textArray = breakText(txt, GOOGLE_TRANSLATE_CHARACTER_LIMIT);
                     for (const text of textArray) {
-                        const translatedText = yield google_translate(page, text);
-                        translatedTexts.push(...translatedText);
+                        translatedTexts[key] = yield google_translate(page, text);
                     }
                 }
                 else {
-                    const translatedText = yield google_translate(page, txt);
-                    translatedTexts.push(...translatedText);
+                    translatedTexts[key] = yield google_translate(page, txt);
                 }
             }
             yield browser.close();
-            if (!translatedTexts.length) {
+            if (!Object.keys(translatedTexts).length) {
                 return Promise.reject(Error("No text was translated, try again, " +
                     JSON.stringify(translatedTexts)));
             }
-            return isString ? translatedTexts[0] : translatedTexts;
+            return textType === "string"
+                ? translatedTexts[0]
+                : Array.isArray(text)
+                    ? Object.values(translatedTexts)
+                    : translatedTexts;
         }
         catch (error) {
             throw error;

@@ -1,8 +1,12 @@
 {
 	"name": "api-translator",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"main": "index.js",
 	"types": "dist/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/egyjs/API-Translator"
+	},
 	"scripts": {
 		"test": "jest --silent=false",
 		"test:watch": "jest --watch --silent=false",

@@ -5,6 +5,7 @@
 .idea
 .vscode
 node_modules
+examples
 tests
 test.*
 

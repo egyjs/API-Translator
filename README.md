@@ -1,6 +1,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/egyjs/api-translator?logo=api-translator%20%7C%20egyjs&logoColor=image%3Ahttps%3A%2F%2Fimg.shields.io%2Fgithub%2Flast-commit%2Fegyjs%2Fapi-translator%3Flogo%3Dapi-translator%2520%257C%2520egyjs%26style%3Dflat-square%5BGitHub%20last%20commit%5D&style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/api-translator?style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/egyjs/API-Translator/npm-publish?style=flat-square)
+
 <div align="center">
 <img src="https://i.ibb.co/Lk9wGxF/app-store-icon.png" alt="free translate" width="40%"/>
 </div>
@@ -57,7 +58,7 @@ const { translate } = require("api-translator");
 })();
 ```
 
-### **Multiple texts**
+### **Multiple texts (Array)**
 
 You can also translate multiple texts at the same time:
 
@@ -70,6 +71,27 @@ const { translate } = require("api-translator");
 	});
 
 	console.log(translatedText); // [ 'اهلا بالعالم', 'هذا رائع!' ]
+})();
+```
+
+---
+
+### **Multiple texts (Object)**
+
+You can also translate a json object:
+
+```js
+const { translate } = require("api-translator");
+
+(async () => {
+	const obj = {
+		Home: "Home",
+		About: "About",
+		Contact: "Contact",
+		Login: "Login",
+	};
+	const result = await translate(obj, { to: "fr" });
+	console.log(result); // { Home: 'Maison', About: 'Maison', Contact: 'Contact', Login: 'Connexion' }
 })();
 ```
 
