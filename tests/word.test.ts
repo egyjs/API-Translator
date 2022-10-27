@@ -1,4 +1,4 @@
-const { translate } = require("free-translate");
+const { translate } = require("api-translator");
 import { info } from "console";
 
 let timeout = 60000;

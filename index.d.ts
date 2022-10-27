@@ -1,5 +1,5 @@
 import { Translate } from "./src";
 
-declare module "free-translate" {
+declare module "api-translator" {
 	export function translate(data: Translate): Promise<string>;
 }

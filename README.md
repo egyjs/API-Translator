@@ -10,10 +10,19 @@
 
 ## **Install**
 
-To install free-translate, you can use NPM:
+To install **api-translator**, you can use:
+```bash
+# npm
+npm i api-translator
+```
+```bash
+# or with yarn
+yarn add api-translator
+```
 
 ```bash
-npm install free-translate
+#or with pnpm
+pnpm add api-translator
 ```
 
 ## **Quick examples**
