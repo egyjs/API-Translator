@@ -1,8 +1,8 @@
 ![API-Translator build](https://img.shields.io/appveyor/build/egyjs/API-Translator?style=flat-square)
 
-<h1 align="center">
+<div align="center">
 <img src="https://i.ibb.co/Lk9wGxF/app-store-icon.png" alt="free translate" width="40%"/>
-</h1>
+</div>
 
 # A free and unlimited translator for Node.js
 
@@ -19,7 +19,7 @@ npm install free-translate
 ## **Quick examples**
 
 ```js
-const { translate } = require("free-translate");
+const { translate } = require("api-translator");
 
 (async () => {
 	const translatedText = await translate("Hello World", {
@@ -36,7 +36,7 @@ const { translate } = require("free-translate");
 If the language informed in the `from` is dynamic, just do not send it and the translator will automatically recognize it:
 
 ```js
-const { translate } = require("free-translate");
+const { translate } = require("api-translator");
 
 (async () => {
 	const translatedText = await translate("This is cool!", { to: "ar" });
@@ -50,7 +50,7 @@ const { translate } = require("free-translate");
 You can also translate multiple texts at the same time:
 
 ```js
-const { translate } = require("free-translate");
+const { translate } = require("api-translator");
 
 (async () => {
 	const translatedText = await translate(["Hello World", "This is cool!"], {
