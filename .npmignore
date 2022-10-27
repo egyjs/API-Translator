@@ -1,4 +1,7 @@
+.DS_Store
 .git
+.gitignore
+.github
 .idea
 .vscode
 node_modules
@@ -8,9 +11,11 @@ test.*
 .editorconfig
 .eslintignore
 .eslintrc.json
-.gitignore
-prettier.config.js
+
 tsconfig.json
-.DS_Store
 jest.config.ts
+
+prettier.config.js
+.prettierignore
+
 yarn.lock
