@@ -76,11 +76,11 @@ function translator({ from, to, text, }) {
             const browser = yield puppeteer.launch({
                 timeout: 60000,
             });
-            const page = yield browser.newPage();
-            const url = `https://translate.google.com/?sl=${from}&tl=${to}&op=translate`;
             const isString = typeof text === "string";
             const textsArray = isString ? [text] : text;
             let translatedTexts = [];
+            const page = yield browser.newPage();
+            const url = `https://translate.google.com/?sl=${from}&tl=${to}&op=translate`;
             yield page.goto(url).then(() => page.waitForSelector("textarea"));
             for (const txt of textsArray) {
                 if (txt.length > GOOGLE_TRANSLATE_CHARACTER_LIMIT) {

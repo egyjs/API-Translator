@@ -11,10 +11,12 @@
 ## **Install**
 
 To install **api-translator**, you can use:
+
 ```bash
 # npm
 npm i api-translator
 ```
+
 ```bash
 # or with yarn
 yarn add api-translator
@@ -72,14 +74,13 @@ const { translate } = require("api-translator");
 
 ---
 
-
 ## Contributing
 
-- If you want to contribute to the project, you can do it by opening a pull request or opening an issue.
-
+-   If you want to contribute to the project, you can do it by opening a pull request or opening an issue.
 
 ---
+
 ## Contact me!
 
-- E-mail <a href="mailto:el3zahaby@gmail.com" target="_blank">`el3zahaby@gmail.com`</a>
-- Instagram <a href="https://www.instagram.com/egyjs/" target="_blank">`@egyjs`</a>
+-   E-mail <a href="mailto:el3zahaby@gmail.com" target="_blank">`el3zahaby@gmail.com`</a>
+-   Instagram <a href="https://www.instagram.com/egyjs/" target="_blank">`@egyjs`</a>

@@ -79,12 +79,13 @@ async function translator({
 			// devtools: true,
 			timeout: 60000,
 		});
-		const page = await browser.newPage();
-		// const url = `https://translate.google.com/?sl=${from}&tl=${to}&text=${text}&op=translate`;
-		const url = `https://translate.google.com/?sl=${from}&tl=${to}&op=translate`;
 		const isString = typeof text === "string";
 		const textsArray = isString ? [text] : text;
 		let translatedTexts: string[] = [];
+
+		const page = await browser.newPage();
+		const url = `https://translate.google.com/?sl=${from}&tl=${to}&op=translate`;
+
 		// open page and wait for it to load
 		await page.goto(url).then(() => page.waitForSelector("textarea"));
 
